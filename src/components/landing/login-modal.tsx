@@ -11,6 +11,7 @@ import {
   AlertDialogTitle,
 } from "@/components/ui/alert-dialog";
 import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 export default function LoginModal({
   isOpen,
@@ -32,7 +33,9 @@ export default function LoginModal({
         <AlertDialogFooter>
           <AlertDialogCancel>Maybe Later</AlertDialogCancel>
           <AlertDialogAction asChild>
-            <Button>Login / Sign Up</Button>
+            <Link href="/login">
+              <Button>Login / Sign Up</Button>
+            </Link>
           </AlertDialogAction>
         </AlertDialogFooter>
       </AlertDialogContent>
