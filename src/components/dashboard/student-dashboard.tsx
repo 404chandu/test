@@ -10,7 +10,7 @@ import Link from 'next/link';
 
 const featureCards = [
   { title: "Video Lectures", description: "Watch and learn from our curated video lectures.", icon: BookOpen, button: "Explore", xp: 50, link: "/dashboard/video-lectures?role=student" },
-  { title: "Quizzes", description: "Test your knowledge with our interactive quizzes.", icon: Puzzle, button: "Explore", xp: 100, link: "#" },
+  { title: "Quizzes", description: "Test your knowledge with our interactive quizzes.", icon: Puzzle, button: "Explore", xp: 100, link: "/dashboard/quizzes?role=student" },
   { title: "Daily Challenges", description: "Complete daily challenges to earn extra points.", icon: Zap, button: "Explore", xp: 75, link: "#" },
   { title: "Materials", description: "Access all the learning materials and resources.", icon: Trophy, button: "Explore", xp: 25, link: "#" },
 ];

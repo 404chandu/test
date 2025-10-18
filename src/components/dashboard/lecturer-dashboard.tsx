@@ -11,7 +11,7 @@ import Link from 'next/link';
 
 const featureCards = [
   { title: "Video Lectures", description: "Manage and upload video lectures for students.", icon: BookOpen, exploreLink: "/dashboard/video-lectures?role=lecturer", uploadLink: "/dashboard/video-lectures?role=lecturer&view=upload" },
-  { title: "Quizzes", description: "Create and manage quizzes to test student knowledge.", icon: Puzzle, exploreLink: "#", uploadLink: "#" },
+  { title: "Quizzes", description: "Create and manage quizzes to test student knowledge.", icon: Puzzle, exploreLink: "/dashboard/quizzes?role=lecturer", uploadLink: "/dashboard/quizzes?role=lecturer&view=upload" },
   { title: "Daily Challenges", description: "Set up daily challenges to engage students.", icon: Zap, exploreLink: "#", uploadLink: "#" },
   { title: "Materials", description: "Upload and organize learning materials.", icon: Trophy, exploreLink: "#", uploadLink: "#" },
 ];
