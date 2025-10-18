@@ -9,6 +9,7 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import { useToast } from '@/hooks/use-toast';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogFooter, DialogTrigger } from '@/components/ui/dialog';
 import { Textarea } from '../ui/textarea';
+import { Input } from '@/components/ui/input';
 
 type ChallengeStatus = "Not Started" | "Completed";
 
