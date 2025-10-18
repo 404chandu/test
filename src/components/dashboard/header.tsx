@@ -69,12 +69,14 @@ export default function Header({ toggleSidebar, isSidebarOpen, role }: { toggleS
             variant="ghost"
             size="icon"
             onClick={toggleSidebar}
-            className="md:hidden"
             aria-label="Toggle Sidebar"
+            className="rounded-full relative overflow-hidden md:hidden"
           >
-            {isSidebarOpen ? <X /> : <Menu />}
+            <Menu className={`h-6 w-6 transition-all duration-300 ${isSidebarOpen ? '-rotate-90 scale-0' : 'rotate-0 scale-100'}`} />
+            <X className={`absolute h-6 w-6 transition-all duration-300 ${isSidebarOpen ? 'rotate-0 scale-100' : 'rotate-90 scale-0'}`} />
           </Button>
-          <Link href="/dashboard" className="flex items-center gap-2">
+          <Link href="/dashboard" className="hidden items-center gap-2 md:flex">
+
             <GameXLogo />
             <span className="hidden text-2xl font-bold font-headline text-foreground md:block">
               GameX

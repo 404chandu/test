@@ -1,7 +1,7 @@
 
 "use client";
 
-import { Home, BookOpen, Puzzle, Trophy, BarChartBig, Rocket } from 'lucide-react';
+import { Home, BookOpen, Puzzle, Trophy, BarChartBig, Users, Mail, Settings, Upload, Rocket } from 'lucide-react';
 import Link from 'next/link';
 
 const GameXLogo = () => (
@@ -14,13 +14,13 @@ const GameXLogo = () => (
   );
 
 const studentNavItems = [
-    { href: '/dashboard?role=student', label: 'Dashboard', icon: Home },
-    { href: '/dashboard/video-lectures?role=student', label: 'Lectures', icon: BookOpen },
-    { href: '#', label: 'Quizzes', icon: Puzzle },
-    { href: '#', label: 'Daily Challenges', icon: Trophy },
-    { href: '#', label: 'Materials', icon: BookOpen },
-    { href: '#', label: 'Contests', icon: Rocket },
-    { href: '#', label: 'Leaderboard', icon: BarChartBig },
+  { href: '/dashboard?role=student', label: 'Dashboard', icon: Home },
+  { href: '/dashboard/video-lectures?role=student', label: 'Lectures', icon: BookOpen },
+  { href: '#', label: 'Quizzes', icon: Puzzle },
+  { href: '#', label: 'Daily Challenges', icon: Trophy },
+  { href: '#', label: 'Materials', icon: BookOpen },
+  { href: '#', label: 'Contests', icon: Rocket },
+  { href: '#', label: 'Leaderboard', icon: BarChartBig },
 ];
 
 const lecturerNavItems = [
@@ -36,12 +36,18 @@ const lecturerNavItems = [
 export default function Sidebar({ isOpen, setIsOpen, role }: { isOpen: boolean; setIsOpen: (isOpen: boolean) => void; role: string }) {
   const navItems = role === 'student' ? studentNavItems : lecturerNavItems;
 
+  const handleLinkClick = () => {
+    if (window.innerWidth < 768 && isOpen) { // Only close on mobile
+        setIsOpen(false);
+    }
+  }
+
   return (
     <>
       <div
-        className={`fixed inset-y-0 left-0 z-40 w-64 transform bg-white shadow-lg transition-transform duration-300 ease-in-out md:translate-x-0 ${
-          isOpen ? 'translate-x-0' : '-translate-x-full'
-        }`}
+        className={`fixed inset-y-0 left-0 z-50 w-72 transform bg-white shadow-lg transition-transform duration-300 ease-in-out ${
+          isOpen ? 'translate-x-0' : '-translate-x-full md:translate-x-0'
+        } md:w-72`}
       >
         <div className="flex h-full flex-col">
             <div className="flex items-center gap-3 p-6 border-b">
@@ -58,7 +64,7 @@ export default function Sidebar({ isOpen, setIsOpen, role }: { isOpen: boolean; 
                         <Link
                         href={item.href}
                         className="flex items-center gap-4 rounded-lg p-3 text-base font-medium text-gray-700 transition-all duration-200 hover:bg-green-100 hover:text-primary hover:shadow-inner"
-                        onClick={() => { if (isOpen) setIsOpen(false) }}
+                        onClick={handleLinkClick}
                         >
                         <item.icon className="h-6 w-6" />
                         <span>{item.label}</span>
@@ -71,7 +77,7 @@ export default function Sidebar({ isOpen, setIsOpen, role }: { isOpen: boolean; 
       </div>
       {isOpen && (
         <div
-          className="fixed inset-0 z-30 bg-black/30 backdrop-blur-sm md:hidden"
+          className="fixed inset-0 z-40 bg-black/30 backdrop-blur-sm md:hidden"
           onClick={() => setIsOpen(false)}
         ></div>
       )}
