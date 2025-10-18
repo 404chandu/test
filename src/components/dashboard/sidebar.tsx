@@ -1,7 +1,7 @@
 
 "use client";
 
-import { Home, BookOpen, Puzzle, Trophy, BarChartBig, Users, Mail, Settings, Upload } from 'lucide-react';
+import { Home, BookOpen, Puzzle, Trophy, BarChartBig, Users, Mail, Settings, Upload, Rocket } from 'lucide-react';
 import Link from 'next/link';
 
 const GameXLogo = () => (
@@ -17,20 +17,20 @@ const studentNavItems = [
   { href: '/dashboard?role=student', label: 'Dashboard', icon: Home },
   { href: '/dashboard/video-lectures?role=student', label: 'Lectures', icon: BookOpen },
   { href: '#', label: 'Quizzes', icon: Puzzle },
-  { href: '#', label: 'Challenges', icon: Trophy },
+  { href: '#', label: 'Daily Challenges', icon: Trophy },
+  { href: '#', label: 'Materials', icon: BookOpen },
+  { href: '#', label: 'Contests', icon: Rocket },
   { href: '#', label: 'Leaderboard', icon: BarChartBig },
 ];
 
 const lecturerNavItems = [
     { href: '/dashboard?role=lecturer', label: 'Dashboard', icon: Home },
-    { href: '/dashboard/video-lectures?role=lecturer', label: 'Video Lectures', icon: BookOpen },
-    { href: '#', label: 'Manage Quizzes', icon: Puzzle },
-    { href: '#', label: 'Students', icon: Users },
-    { href: '#', label: 'Announcements', icon: Mail },
-];
-
-const commonNavItems = [
-    { href: '#', label: 'Settings', icon: Settings },
+    { href: '/dashboard/video-lectures?role=lecturer', label: 'Lectures', icon: BookOpen },
+    { href: '#', label: 'Quizzes', icon: Puzzle },
+    { href: '#', label: 'Challenges', icon: Trophy },
+    { href: '#', label: 'Materials', icon: BookOpen },
+    { href: '#', label: 'Contests', icon: Rocket },
+    { href: '#', label: 'Leaderboard', icon: BarChartBig },
 ];
 
 export default function Sidebar({ isOpen, setIsOpen, role }: { isOpen: boolean; setIsOpen: (isOpen: boolean) => void; role: string }) {
@@ -47,7 +47,7 @@ export default function Sidebar({ isOpen, setIsOpen, role }: { isOpen: boolean; 
       <div
         className={`fixed inset-y-0 left-0 z-50 w-72 transform bg-white shadow-lg transition-transform duration-300 ease-in-out md:translate-x-0 ${
           isOpen ? 'translate-x-0' : '-translate-x-full'
-        }`}
+        } ${!isOpen && 'md:-translate-x-full'}`}
       >
         <div className="flex h-full flex-col">
             <div className="flex items-center gap-3 p-6 border-b">
@@ -60,21 +60,6 @@ export default function Sidebar({ isOpen, setIsOpen, role }: { isOpen: boolean; 
                 <p className="px-4 py-2 text-xs font-semibold text-muted-foreground uppercase tracking-wider">{role}</p>
                 <ul>
                     {navItems.map((item) => (
-                    <li key={item.label}>
-                        <Link
-                        href={item.href}
-                        className="flex items-center gap-4 rounded-lg p-3 text-base font-medium text-gray-700 transition-all duration-200 hover:bg-green-100 hover:text-primary hover:shadow-inner"
-                        onClick={handleLinkClick}
-                        >
-                        <item.icon className="h-6 w-6" />
-                        <span>{item.label}</span>
-                        </Link>
-                    </li>
-                    ))}
-                </ul>
-                <div className="px-4 pt-4 pb-2 text-xs font-semibold text-muted-foreground uppercase tracking-wider">General</div>
-                 <ul>
-                    {commonNavItems.map((item) => (
                     <li key={item.label}>
                         <Link
                         href={item.href}

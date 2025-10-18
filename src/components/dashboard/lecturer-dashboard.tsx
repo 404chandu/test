@@ -1,3 +1,4 @@
+
 "use client";
 
 import { BookOpen, Puzzle, Trophy, Zap, Upload, Crown } from 'lucide-react';
@@ -5,13 +6,14 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import { Button } from '@/components/ui/button';
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import TypingAnimation from '@/components/landing/typing-animation';
+import Link from 'next/link';
 
 
 const featureCards = [
-  { title: "Video Lectures", description: "Manage and upload video lectures for students.", icon: BookOpen },
-  { title: "Quizzes", description: "Create and manage quizzes to test student knowledge.", icon: Puzzle },
-  { title: "Daily Challenges", description: "Set up daily challenges to engage students.", icon: Zap },
-  { title: "Materials", description: "Upload and organize learning materials.", icon: Trophy },
+  { title: "Video Lectures", description: "Manage and upload video lectures for students.", icon: BookOpen, exploreLink: "/dashboard/video-lectures?role=lecturer", uploadLink: "/dashboard/video-lectures?role=lecturer&view=upload" },
+  { title: "Quizzes", description: "Create and manage quizzes to test student knowledge.", icon: Puzzle, exploreLink: "#", uploadLink: "#" },
+  { title: "Daily Challenges", description: "Set up daily challenges to engage students.", icon: Zap, exploreLink: "#", uploadLink: "#" },
+  { title: "Materials", description: "Upload and organize learning materials.", icon: Trophy, exploreLink: "#", uploadLink: "#" },
 ];
 
 const leaderboardData = [
@@ -45,8 +47,12 @@ export default function LecturerDashboard() {
               <CardDescription>{card.description}</CardDescription>
             </CardContent>
             <CardFooter className="flex justify-between items-center">
-              <Button>Explore</Button>
-              <Button variant="outline"><Upload className="mr-2 h-4 w-4" /> Upload</Button>
+              <Button asChild>
+                <Link href={card.exploreLink}>Explore</Link>
+              </Button>
+              <Button variant="outline" asChild>
+                <Link href={card.uploadLink}><Upload className="mr-2 h-4 w-4" /> Upload</Link>
+              </Button>
             </CardFooter>
           </Card>
         ))}
@@ -56,11 +62,14 @@ export default function LecturerDashboard() {
       <Card className="lg:col-span-2 rounded-2xl shadow-md bg-white/60 backdrop-blur-sm p-6">
           <h3 className="text-xl font-bold mb-4">Weekly Contest</h3>
           <div className="bg-blue-100/60 p-6 rounded-lg text-center">
-            <h4 className="text-lg font-semibold text-blue-800">Create a New Contest</h4>
-            <p className="text-muted-foreground my-2">Engage your students with a new and exciting weekly contest.</p>
-            <Button variant="secondary" className="bg-blue-600 text-white hover:bg-blue-700">
-                <Upload className="mr-2 h-4 w-4" /> Upload Contest
-            </Button>
+            <h4 className="text-lg font-semibold text-blue-800">Create & Manage Contests</h4>
+            <p className="text-muted-foreground my-2">Engage your students with new and exciting weekly contests.</p>
+            <div className="flex justify-center gap-4 mt-4">
+                <Button>Explore</Button>
+                <Button variant="secondary" className="bg-blue-600 text-white hover:bg-blue-700">
+                    <Upload className="mr-2 h-4 w-4" /> Upload Contest
+                </Button>
+            </div>
           </div>
         </Card>
         <Card className="rounded-2xl shadow-md bg-white/60 backdrop-blur-sm p-6">

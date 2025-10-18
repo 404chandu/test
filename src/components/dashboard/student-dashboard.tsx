@@ -1,3 +1,4 @@
+
 "use client";
 
 import { BookOpen, Puzzle, Trophy, Zap, Award, Crown } from 'lucide-react';
@@ -5,12 +6,13 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import { Button } from '@/components/ui/button';
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import TypingAnimation from '@/components/landing/typing-animation';
+import Link from 'next/link';
 
 const featureCards = [
-  { title: "Video Lectures", description: "Watch and learn from our curated video lectures.", icon: BookOpen, button: "Explore", xp: 50 },
-  { title: "Quizzes", description: "Test your knowledge with our interactive quizzes.", icon: Puzzle, button: "Explore", xp: 100 },
-  { title: "Daily Challenges", description: "Complete daily challenges to earn extra points.", icon: Zap, button: "Explore", xp: 75 },
-  { title: "Materials", description: "Access all the learning materials and resources.", icon: Trophy, button: "Explore", xp: 25 },
+  { title: "Video Lectures", description: "Watch and learn from our curated video lectures.", icon: BookOpen, button: "Explore", xp: 50, link: "/dashboard/video-lectures?role=student" },
+  { title: "Quizzes", description: "Test your knowledge with our interactive quizzes.", icon: Puzzle, button: "Explore", xp: 100, link: "#" },
+  { title: "Daily Challenges", description: "Complete daily challenges to earn extra points.", icon: Zap, button: "Explore", xp: 75, link: "#" },
+  { title: "Materials", description: "Access all the learning materials and resources.", icon: Trophy, button: "Explore", xp: 25, link: "#" },
 ];
 
 const leaderboardData = [
@@ -44,7 +46,9 @@ export default function StudentDashboard() {
               <CardDescription>{card.description}</CardDescription>
             </CardContent>
             <CardFooter className="flex justify-between items-center">
-              <Button>{card.button}</Button>
+              <Button asChild>
+                <Link href={card.link}>{card.button}</Link>
+              </Button>
               <div className="flex items-center gap-1 text-sm font-semibold text-yellow-600">
                 <Award className="h-5 w-5"/>
                 <span>{card.xp} XP</span>
