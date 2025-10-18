@@ -10,8 +10,8 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        body: ['Inter', 'sans-serif'],
-        headline: ['Inter', 'sans-serif'],
+        body: ['"PT Sans"', 'sans-serif'],
+        headline: ['"PT Sans"', 'sans-serif'],
         code: ['monospace'],
       },
       colors: {
@@ -88,10 +88,31 @@ export default {
             height: '0',
           },
         },
+        'blink-caret': {
+          'from, to': { borderColor: 'transparent' },
+          '50%': { borderColor: 'hsl(var(--primary))' },
+        },
+        'sway': {
+          '0%, 100%': { transform: 'rotate(6deg)' },
+          '50%': { transform: 'rotate(-6deg)' },
+        },
+        'fly': {
+          '0%': { transform: 'translateX(-10%) translateY(10%) scale(0.8)', opacity: '0.8' },
+          '100%': { transform: 'translateX(110%) translateY(-20%) scale(1.2)', opacity: '0' },
+        },
+        'float': {
+          '0%': { transform: 'translateY(0px)' },
+          '50%': { transform: 'translateY(-15px)' },
+          '100%': { transform: 'translateY(0px)' },
+        }
       },
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out',
+        'blink-caret': 'blink-caret .75s step-end infinite',
+        'sway': 'sway 4s ease-in-out infinite alternate',
+        'fly': 'fly 15s linear infinite',
+        'float': 'float 6s ease-in-out infinite',
       },
     },
   },

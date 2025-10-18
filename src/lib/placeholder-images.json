@@ -1,3 +1,70 @@
 {
-  "placeholderImages": []
+  "placeholderImages": [
+    {
+      "id": "gallery-1",
+      "description": "A lush green forest with sunbeams.",
+      "imageUrl": "https://images.unsplash.com/photo-1503903587778-5124b6d043b8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxncmVlbiUyMGZvcmVzdHxlbnwwfHx8fDE3NjA3NTE2NTZ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "green forest"
+    },
+    {
+      "id": "gallery-2",
+      "description": "A pristine blue lake surrounded by mountains.",
+      "imageUrl": "https://images.unsplash.com/photo-1553450078-234c10c53b2f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxibHVlJTIwbGFrZXxlbnwwfHx8fDE3NjA3ODY2MzN8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "blue lake"
+    },
+    {
+      "id": "gallery-3",
+      "description": "A field of yellow sunflowers.",
+      "imageUrl": "https://images.unsplash.com/photo-1598920710727-e6c74781538c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxzdW5mbG93ZXIlMjBmaWVsZHxlbnwwfHx8fDE3NjA3MzIxNTd8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "sunflower field"
+    },
+    {
+      "id": "gallery-4",
+      "description": "Close up of a flower.",
+      "imageUrl": "https://images.unsplash.com/photo-1617537828852-d9e140e3355e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxmbG93ZXIlMjBjbG9zZS11cHxlbnwwfHx8fDE3NjA3MzI4OTJ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "flower close-up"
+    },
+    {
+      "id": "gallery-5",
+      "description": "A person planting a small tree.",
+      "imageUrl": "https://images.unsplash.com/photo-1625758476104-f2ed6c81248f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxwbGFudGluZyUyMHRyZWV8ZW58MHx8fHwxNzYwNzg2NjMzfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "planting tree"
+    },
+    {
+      "id": "gallery-6",
+      "description": "Solar panels on a roof.",
+      "imageUrl": "https://images.unsplash.com/photo-1509391366360-2e959784a276?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxzb2xhciUyMHBhbmVsc3xlbnwwfHx8fDE3NjA3Mzc0MjF8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "solar panels"
+    },
+    {
+      "id": "game-highlight-1",
+      "description": "Recycle Rush game icon.",
+      "imageUrl": "https://images.unsplash.com/photo-1754797007532-14d15c2eacdb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxyZWN5Y2xpbmclMjBnYW1lfGVufDB8fHx8MTc2MDc4NjYzM3ww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "recycling game"
+    },
+    {
+      "id": "game-highlight-2",
+      "description": "Eco Explorer game icon.",
+      "imageUrl": "https://images.unsplash.com/photo-1634052057127-e818cbd70db6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxuYXR1cmUlMjBleHBsb3JhdGlvbnxlbnwwfHx8fDE3NjA3ODY2MzN8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "nature exploration"
+    },
+    {
+      "id": "game-highlight-3",
+      "description": "Water Saver game icon.",
+      "imageUrl": "https://images.unsplash.com/photo-1488642945284-f5b65425f15a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHx3YXRlciUyMGRyb3BzfGVufDB8fHx8MTc2MDc4NjYzM3ww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "water drops"
+    },
+    {
+      "id": "game-highlight-4",
+      "description": "Carbon Footprint game icon.",
+      "imageUrl": "https://images.unsplash.com/photo-1659100947220-48b5d5738148?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxmb290cHJpbnQlMjBpY29ufGVufDB8fHx8MTc2MDc4NjYzM3ww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "footprint icon"
+    },
+    {
+      "id": "about-us-team",
+      "description": "A diverse team working together.",
+      "imageUrl": "https://images.unsplash.com/photo-1624555130296-e551faf8969b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxkaXZlcnNlJTIwdGVhbXxlbnwwfHx8fDE3NjA3NjAxNzl8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "diverse team"
+    }
+  ]
 }
