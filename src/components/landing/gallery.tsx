@@ -19,14 +19,14 @@ export default function Gallery() {
             Our Green Journey
           </h2>
           <p className="mt-4 max-w-2xl mx-auto text-lg text-muted-foreground">
-            Explore moments of environmental action and achievement from our community.
+            Explore moments of environmental learning and achievement from our community.
           </p>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
           {galleryImages.map((image, index) => (
             <Card
               key={image.id}
-              className="overflow-hidden cursor-pointer transition-all duration-300 hover:shadow-xl hover:shadow-green-200 hover:-translate-y-2 rounded-2xl"
+              className="group overflow-hidden cursor-pointer rounded-2xl"
               onClick={openModal}
               style={{ animation: `fade-in 0.5s ${index * 0.1}s ease-in-out forwards`, opacity: 0 }}
             >
@@ -36,10 +36,11 @@ export default function Gallery() {
                     src={image.imageUrl}
                     alt={image.description}
                     fill
-                    className="object-cover"
+                    className="object-cover transition-transform duration-500 group-hover:scale-110"
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                     data-ai-hint={image.imageHint}
                   />
+                   <div className="absolute inset-0 bg-green-500/20 opacity-0 transition-opacity duration-500 group-hover:opacity-100"></div>
                 </div>
               </CardContent>
             </Card>
