@@ -1,7 +1,7 @@
 
 "use client";
 
-import { Home, BookOpen, Puzzle, Trophy, BarChartBig, Users, Mail, Settings, Upload, Rocket } from 'lucide-react';
+import { Home, BookOpen, Puzzle, Trophy, BarChartBig, Rocket } from 'lucide-react';
 import Link from 'next/link';
 
 const GameXLogo = () => (
@@ -14,13 +14,13 @@ const GameXLogo = () => (
   );
 
 const studentNavItems = [
-  { href: '/dashboard?role=student', label: 'Dashboard', icon: Home },
-  { href: '/dashboard/video-lectures?role=student', label: 'Lectures', icon: BookOpen },
-  { href: '#', label: 'Quizzes', icon: Puzzle },
-  { href: '#', label: 'Daily Challenges', icon: Trophy },
-  { href: '#', label: 'Materials', icon: BookOpen },
-  { href: '#', label: 'Contests', icon: Rocket },
-  { href: '#', label: 'Leaderboard', icon: BarChartBig },
+    { href: '/dashboard?role=student', label: 'Dashboard', icon: Home },
+    { href: '/dashboard/video-lectures?role=student', label: 'Lectures', icon: BookOpen },
+    { href: '#', label: 'Quizzes', icon: Puzzle },
+    { href: '#', label: 'Daily Challenges', icon: Trophy },
+    { href: '#', label: 'Materials', icon: BookOpen },
+    { href: '#', label: 'Contests', icon: Rocket },
+    { href: '#', label: 'Leaderboard', icon: BarChartBig },
 ];
 
 const lecturerNavItems = [
@@ -45,9 +45,9 @@ export default function Sidebar({ isOpen, setIsOpen, role }: { isOpen: boolean; 
   return (
     <>
       <div
-        className={`fixed inset-y-0 left-0 z-50 w-72 transform bg-white shadow-lg transition-transform duration-300 ease-in-out ${
-          isOpen ? 'translate-x-0' : '-translate-x-full md:translate-x-0'
-        } md:w-72`}
+        className={`fixed inset-y-0 left-0 z-50 w-56 transform bg-white shadow-lg transition-transform duration-300 ease-in-out ${
+          isOpen ? 'translate-x-0' : '-translate-x-full'
+        } md:translate-x-0`}
       >
         <div className="flex h-full flex-col">
             <div className="flex items-center gap-3 p-6 border-b">

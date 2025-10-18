@@ -1,3 +1,4 @@
+
 "use client";
 
 import { Bell, Menu, X, Award, LogOut } from 'lucide-react';
@@ -74,7 +75,7 @@ export default function Header({ toggleSidebar, isSidebarOpen, role }: { toggleS
             <Menu className={`h-6 w-6 transition-all duration-300 ${isSidebarOpen ? '-rotate-90 scale-0' : 'rotate-0 scale-100'}`} />
             <X className={`absolute h-6 w-6 transition-all duration-300 ${isSidebarOpen ? 'rotate-0 scale-100' : 'rotate-90 scale-0'}`} />
           </Button>
-          <Link href="/dashboard" className="hidden items-center gap-2 md:flex">
+          <Link href="/dashboard" className="flex items-center gap-2">
             <GameXLogo />
             <span className="hidden text-2xl font-bold font-headline text-foreground md:block">
               GameX
