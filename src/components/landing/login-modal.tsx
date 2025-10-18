@@ -26,8 +26,7 @@ export default function LoginModal({
         <AlertDialogHeader>
           <AlertDialogTitle>Ready to Start Your Adventure?</AlertDialogTitle>
           <AlertDialogDescription>
-            To explore games, test your skills, and view achievements, please
-            log in or create an account.
+            To explore learning materials, test your knowledge, and view achievements, please log in or create an account.
           </AlertDialogDescription>
         </AlertDialogHeader>
         <AlertDialogFooter>
