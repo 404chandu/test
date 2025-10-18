@@ -1,3 +1,4 @@
+
 "use client";
 
 import { Home, BookOpen, Puzzle, Trophy, BarChartBig, Users, Mail, Settings, Upload } from 'lucide-react';
@@ -14,7 +15,7 @@ const GameXLogo = () => (
 
 const studentNavItems = [
   { href: '/dashboard?role=student', label: 'Dashboard', icon: Home },
-  { href: '#', label: 'Lectures', icon: BookOpen },
+  { href: '/dashboard/video-lectures?role=student', label: 'Lectures', icon: BookOpen },
   { href: '#', label: 'Quizzes', icon: Puzzle },
   { href: '#', label: 'Challenges', icon: Trophy },
   { href: '#', label: 'Leaderboard', icon: BarChartBig },
@@ -22,7 +23,7 @@ const studentNavItems = [
 
 const lecturerNavItems = [
     { href: '/dashboard?role=lecturer', label: 'Dashboard', icon: Home },
-    { href: '#', label: 'Upload Content', icon: Upload },
+    { href: '/dashboard/video-lectures?role=lecturer', label: 'Video Lectures', icon: BookOpen },
     { href: '#', label: 'Manage Quizzes', icon: Puzzle },
     { href: '#', label: 'Students', icon: Users },
     { href: '#', label: 'Announcements', icon: Mail },
