@@ -1,7 +1,7 @@
 
 "use client";
 
-import { Bell, Menu, X, Award, LogOut } from 'lucide-react';
+import { Bell, Menu, X, Award, LogOut, BookOpen, Puzzle, Zap, FileText } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import {
   DropdownMenu,
@@ -14,6 +14,7 @@ import {
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Progress } from '@/components/ui/progress';
 import Link from 'next/link';
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '../ui/tooltip';
 
 const GameXLogo = () => (
     <svg width="32" height="32" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -25,6 +26,7 @@ const GameXLogo = () => (
 );
   
 const StudentDropdown = () => (
+    <TooltipProvider>
     <>
         <DropdownMenuLabel className="font-normal">
             <div className="flex flex-col space-y-1">
@@ -35,20 +37,41 @@ const StudentDropdown = () => (
         <DropdownMenuSeparator />
         <div className="px-2 py-1.5 text-sm">
             <div className="flex justify-between mb-1">
-                <span className="font-medium">XP</span>
-                <span>1,250 / 2,000</span>
+                <span className="font-medium">Level 5</span>
+                <span>2750 / 5000 XP</span>
             </div>
-            <Progress value={62.5} className="h-2" />
+            <Progress value={55} className="h-2" />
+             <p className="text-xs text-muted-foreground mt-1 text-right">2250 XP to next level</p>
         </div>
         <div className="px-2 py-1.5 text-sm">
             <p className="font-medium mb-2">Badges</p>
             <div className="flex gap-2">
-                <Award className="h-6 w-6 text-yellow-500" />
-                <Award className="h-6 w-6 text-slate-400" />
-                <Award className="h-6 w-6 text-amber-700" />
+                <Tooltip>
+                    <TooltipTrigger><Award className="h-6 w-6 text-yellow-500 transition-transform hover:scale-110" /></TooltipTrigger>
+                    <TooltipContent>Eco-Innovator (500XP)</TooltipContent>
+                </Tooltip>
+                <Tooltip>
+                    <TooltipTrigger><Award className="h-6 w-6 text-slate-400 transition-transform hover:scale-110" /></TooltipTrigger>
+                    <TooltipContent>Recycle Ranger (250XP)</TooltipContent>
+                </Tooltip>
+                 <Tooltip>
+                    <TooltipTrigger><Award className="h-6 w-6 text-amber-700 transition-transform hover:scale-110" /></TooltipTrigger>
+                    <TooltipContent>Bronze Learner (100XP)</TooltipContent>
+                </Tooltip>
+            </div>
+        </div>
+        <DropdownMenuSeparator />
+         <div className="px-2 py-1.5 text-sm">
+            <p className="font-medium mb-2">Progress Summary</p>
+            <div className="space-y-2 text-xs">
+                <div className="flex items-center justify-between"><div className="flex items-center gap-2"><BookOpen className="h-4 w-4 text-primary"/><span>Lectures</span></div> <span>5/9</span></div>
+                <div className="flex items-center justify-between"><div className="flex items-center gap-2"><Puzzle className="h-4 w-4 text-primary"/><span>Quizzes</span></div> <span>3/4</span></div>
+                <div className="flex items-center justify-between"><div className="flex items-center gap-2"><Zap className="h-4 w-4 text-primary"/><span>Challenges</span></div> <span>8/15</span></div>
+                <div className="flex items-center justify-between"><div className="flex items-center gap-2"><FileText className="h-4 w-4 text-primary"/><span>Materials</span></div> <span>4/6</span></div>
             </div>
         </div>
     </>
+    </TooltipProvider>
 );
 
 const LecturerDropdown = () => (
@@ -75,7 +98,7 @@ export default function Header({ toggleSidebar, isSidebarOpen, role }: { toggleS
             <Menu className={`h-6 w-6 transition-all duration-300 ${isSidebarOpen ? '-rotate-90 scale-0' : 'rotate-0 scale-100'}`} />
             <X className={`absolute h-6 w-6 transition-all duration-300 ${isSidebarOpen ? 'rotate-0 scale-100' : 'rotate-90 scale-0'}`} />
           </Button>
-          <Link href="/dashboard" className="hidden items-center gap-2 md:flex">
+          <Link href={`/dashboard?role=${role}`} className="hidden items-center gap-2 md:flex">
 
             <GameXLogo />
             <span className="hidden text-2xl font-bold font-headline text-foreground md:block">
@@ -112,7 +135,7 @@ export default function Header({ toggleSidebar, isSidebarOpen, role }: { toggleS
             <DropdownMenu>
                 <DropdownMenuTrigger asChild>
                     <Button variant="ghost" className="relative h-10 w-10 rounded-full">
-                        <Avatar className='h-10 w-10'>
+                        <Avatar className='h-10 w-10 border-2 border-primary/50'>
                             <AvatarImage src={`https://i.pravatar.cc/150?u=${role === 'student' ? 'student' : 'lecturer'}`} alt="User Avatar" />
                             <AvatarFallback>{role === 'student' ? 'ST' : 'LC'}</AvatarFallback>
                         </Avatar>

@@ -25,7 +25,7 @@ const leaderboardData = [
   { name: 'Myra Joshi', xp: 3200, avatar: 'https://i.pravatar.cc/150?u=g' },
   { name: 'Kabir Verma', xp: 3000, avatar: 'https://i.pravatar.cc/150?u=h' },
   { name: 'Saanvi Mehta', xp: 2800, avatar: 'https://i.pravatar.cc/150?u=i' },
-  { name: 'Reyansh Rao', xp: 2600, avatar: 'https://i.pravatar.cc/150?u=j' },
+  { name: 'You', xp: 2750, avatar: 'https://i.pravatar.cc/150?u=student' },
 ];
 
 export default function StudentDashboard() {
@@ -73,7 +73,7 @@ export default function StudentDashboard() {
           <h3 className="text-xl font-bold mb-4 flex items-center gap-2"><Trophy className="text-yellow-500" /> Leaderboard</h3>
           <div className="space-y-4">
             {leaderboardData.map((student, index) => (
-              <div key={index} className="flex items-center justify-between">
+              <div key={index} className={`flex items-center justify-between p-2 rounded-lg ${student.name === 'You' ? 'bg-primary/20' : ''}`}>
                 <div className="flex items-center gap-3">
                   <Avatar className="h-9 w-9">
                     <AvatarImage src={student.avatar} />
@@ -88,6 +88,9 @@ export default function StudentDashboard() {
               </div>
             ))}
           </div>
+           <Button variant="link" className="w-full mt-4" asChild>
+            <Link href="/dashboard/leaderboard?role=student">View Full Leaderboard</Link>
+          </Button>
         </Card>
       </div>
     </div>

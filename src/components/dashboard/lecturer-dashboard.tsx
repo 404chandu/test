@@ -7,6 +7,8 @@ import { Button } from '@/components/ui/button';
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import TypingAnimation from '@/components/landing/typing-animation';
 import Link from 'next/link';
+import { Progress } from '../ui/progress';
+import { Award } from 'lucide-react';
 
 
 const featureCards = [
@@ -17,17 +19,25 @@ const featureCards = [
 ];
 
 const leaderboardData = [
-  { name: 'Aarav Sharma', xp: 4500, avatar: 'https://i.pravatar.cc/150?u=a' },
-  { name: 'Diya Patel', xp: 4250, avatar: 'https://i.pravatar.cc/150?u=b' },
-  { name: 'Vihaan Singh', xp: 4100, avatar: 'https://i.pravatar.cc/150?u=c' },
-  { name: 'Ananya Reddy', xp: 3900, avatar: 'https://i.pravatar.cc/150?u=d' },
-  { name: 'Advik Kumar', xp: 3750, avatar: 'https://i.pravatar.cc/150?u=e' },
-  { name: 'Ishaan Gupta', xp: 3500, avatar: 'https://i.pravatar.cc/150?u=f' },
-  { name: 'Myra Joshi', xp: 3200, avatar: 'https://i.pravatar.cc/150?u=g' },
-  { name: 'Kabir Verma', xp: 3000, avatar: 'https://i.pravatar.cc/150?u=h' },
-  { name: 'Saanvi Mehta', xp: 2800, avatar: 'https://i.pravatar.cc/150?u=i' },
-  { name: 'Reyansh Rao', xp: 2600, avatar: 'https://i.pravatar.cc/150?u=j' },
+  { name: 'Aarav Sharma', xp: 4500, avatar: 'https://i.pravatar.cc/150?u=a', progress: 90 },
+  { name: 'Diya Patel', xp: 4250, avatar: 'https://i.pravatar.cc/150?u=b', progress: 85 },
+  { name: 'Vihaan Singh', xp: 4100, avatar: 'https://i.pravatar.cc/150?u=c', progress: 82 },
+  { name: 'Ananya Reddy', xp: 3900, avatar: 'https://i.pravatar.cc/150?u=d', progress: 78 },
+  { name: 'Advik Kumar', xp: 3750, avatar: 'https://i.pravatar.cc/150?u=e', progress: 75 },
+  { name: 'Ishaan Gupta', xp: 3500, avatar: 'https://i.pravatar.cc/150?u=f', progress: 70 },
+  { name: 'Myra Joshi', xp: 3200, avatar: 'https://i.pravatar.cc/150?u=g', progress: 64 },
+  { name: 'Kabir Verma', xp: 3000, avatar: 'https://i.pravatar.cc/150?u=h', progress: 60 },
+  { name: 'Saanvi Mehta', xp: 2800, avatar: 'https://i.pravatar.cc/150?u=i', progress: 56 },
+  { name: 'Reyansh Rao', xp: 2600, avatar: 'https://i.pravatar.cc/150?u=j', progress: 52 },
 ];
+
+const getTrophyColor = (index: number) => {
+    if(index === 0) return 'text-yellow-400';
+    if(index === 1) return 'text-slate-400';
+    if(index === 2) return 'text-amber-700';
+    return 'text-muted-foreground';
+}
+
 
 export default function LecturerDashboard() {
   return (
@@ -80,21 +90,28 @@ export default function LecturerDashboard() {
           <h3 className="text-xl font-bold mb-4 flex items-center gap-2"><Trophy className="text-yellow-500" /> Top 10 Students</h3>
           <div className="space-y-4">
             {leaderboardData.map((student, index) => (
-              <div key={index} className="flex items-center justify-between">
+              <div key={index} className={`flex items-center justify-between p-2 rounded-lg transition-all duration-300 ${index < 3 ? 'bg-gradient-to-r from-yellow-50/50 to-green-50/30 shadow-sm' : ''}`}>
                 <div className="flex items-center gap-3">
-                  <Avatar className="h-9 w-9">
+                    <span className="font-bold text-lg w-6 text-center">{index + 1}</span>
+                  <Avatar className="h-10 w-10 border-2 border-green-200">
                     <AvatarImage src={student.avatar} />
                     <AvatarFallback>{student.name.charAt(0)}</AvatarFallback>
                   </Avatar>
                   <div>
                     <p className="font-semibold">{student.name}</p>
-                    <p className="text-sm text-muted-foreground">{student.xp} XP</p>
+                    <Progress value={student.progress} className="h-2 w-24 mt-1" />
                   </div>
                 </div>
-                {index === 0 && <Crown className="h-6 w-6 text-yellow-400" />}
+                <div className="flex items-center gap-2">
+                    <span className="font-bold text-lg text-primary">{student.xp} XP</span>
+                    <Crown className={`h-6 w-6 ${getTrophyColor(index)}`} />
+                </div>
               </div>
             ))}
           </div>
+           <Button variant="link" className="w-full mt-4" asChild>
+            <Link href="/dashboard/leaderboard?role=lecturer">View Full Leaderboard</Link>
+          </Button>
         </Card>
       </div>
     </div>

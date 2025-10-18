@@ -1,3 +1,4 @@
+
 'use client';
 
 import {
@@ -10,6 +11,8 @@ import {
   FileText,
 } from 'lucide-react';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+import { cn } from '@/lib/utils';
 
 const GameXLogo = () => (
   <svg
@@ -51,25 +54,16 @@ const GameXLogo = () => (
   </svg>
 );
 
-const studentNavItems = [
-  { href: '/dashboard?role=student', label: 'Dashboard', icon: Home },
-  { href: '/dashboard/video-lectures?role=student', label: 'Lectures', icon: BookOpen },
-  { href: '/dashboard/quizzes?role=student', label: 'Quizzes', icon: Puzzle },
-  { href: '/dashboard/challenges?role=student', label: 'Daily Challenges', icon: Trophy },
-  { href: '/dashboard/materials?role=student', label: 'Materials', icon: FileText },
-  { href: '/dashboard/contests?role=student', label: 'Contests', icon: Rocket },
-  { href: '#', label: 'Leaderboard', icon: BarChartBig },
+const navItems = [
+    { href: '/dashboard', label: 'Dashboard', icon: Home },
+    { href: '/dashboard/video-lectures', label: 'Lectures', icon: BookOpen },
+    { href: '/dashboard/quizzes', label: 'Quizzes', icon: Puzzle },
+    { href: '/dashboard/challenges', label: 'Daily Challenges', icon: Trophy },
+    { href: '/dashboard/materials', label: 'Materials', icon: FileText },
+    { href: '/dashboard/contests', label: 'Contests', icon: Rocket },
+    { href: '/dashboard/leaderboard', label: 'Leaderboard', icon: BarChartBig },
 ];
 
-const lecturerNavItems = [
-    { href: '/dashboard?role=lecturer', label: 'Dashboard', icon: Home },
-    { href: '/dashboard/video-lectures?role=lecturer', label: 'Lectures', icon: BookOpen },
-    { href: '/dashboard/quizzes?role=lecturer', label: 'Quizzes', icon: Puzzle },
-    { href: '/dashboard/challenges?role=lecturer', label: 'Challenges', icon: Trophy },
-    { href: '/dashboard/materials?role=lecturer', label: 'Materials', icon: FileText },
-    { href: '/dashboard/contests?role=lecturer', label: 'Contests', icon: Rocket },
-    { href: '#', label: 'Leaderboard', icon: BarChartBig },
-];
 
 export default function Sidebar({
   isOpen,
@@ -80,7 +74,7 @@ export default function Sidebar({
   setIsOpen: (isOpen: boolean) => void;
   role: string;
 }) {
-  const navItems = role === 'student' ? studentNavItems : lecturerNavItems;
+  const pathname = usePathname();
 
   const handleLinkClick = () => {
     if (window.innerWidth < 768 && isOpen) {
@@ -111,8 +105,11 @@ export default function Sidebar({
               {navItems.map((item) => (
                 <li key={item.label}>
                   <Link
-                    href={item.href}
-                    className="flex items-center gap-4 rounded-lg p-3 text-base font-medium text-gray-700 transition-all duration-200 hover:bg-green-100 hover:text-primary hover:shadow-inner"
+                    href={`${item.href}?role=${role}`}
+                    className={cn(
+                        "flex items-center gap-4 rounded-lg p-3 text-base font-medium text-gray-700 transition-all duration-200 hover:bg-green-100 hover:text-primary",
+                        pathname === item.href && "bg-green-100 text-primary shadow-inner"
+                    )}
                     onClick={handleLinkClick}
                   >
                     <item.icon className="h-6 w-6" />
