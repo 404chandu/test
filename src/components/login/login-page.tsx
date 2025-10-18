@@ -11,6 +11,7 @@ import {
   Card,
   CardContent,
   CardDescription,
+  CardFooter,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
@@ -52,6 +53,11 @@ const RoleSelection = ({ onSelectRole }: { onSelectRole: (role: Role) => void })
         <h3 className="text-xl font-bold text-foreground">Login as Lecturer</h3>
       </div>
     </CardContent>
+    <CardFooter className="flex justify-center">
+        <Button variant="outline" asChild className="rounded shadow-sm hover:-translate-y-1 transition-transform">
+            <Link href="/"><ArrowLeft className="mr-2 h-4 w-4" /> Back to Home</Link>
+        </Button>
+    </CardFooter>
   </Card>
 );
 
