@@ -11,7 +11,7 @@ const GameXLogo = () => (
       <path d="M24 4C12.9543 4 4 12.9543 4 24C4 35.0457 12.9543 44 24 44C35.0457 44 44 35.0457 44 24C44 12.9543 35.0457 4 24 4Z" stroke="hsl(var(--primary))" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round"/>
       <path d="M24 4V44C35.0457 44 44 35.0457 44 24C44 12.9543 35.0457 4 24 4Z" fill="hsl(var(--accent))" stroke="hsl(var(--primary))" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round"/>
       <path d="M31 16L17 32" stroke="hsl(var(--foreground))" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round"/>
-      <path d="M17 16L31 32" stroke="hsl(var(--foreground))" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round"/>
+      <path d_ts-expect-error="M17 16L31 32" stroke="hsl(var(--foreground))" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round"/>
     </svg>
   );
 
@@ -41,7 +41,9 @@ export default function Header({ toggleSidebar, isSidebarOpen }: { toggleSidebar
         </div>
         <div className="flex items-center gap-2">
           <Button variant="ghost" onClick={openModal}>Log In</Button>
-          <Button onClick={openModal}>Sign Up</Button>
+          <Button asChild>
+            <Link href="/signup">Sign Up</Link>
+          </Button>
         </div>
       </div>
     </header>
