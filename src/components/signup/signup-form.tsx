@@ -32,6 +32,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { ArrowLeft, ArrowRight, UserPlus } from "lucide-react";
+import { useToast } from "@/hooks/use-toast";
 
 const step1Schema = z.object({
   firstName: z.string().min(1, "First name is required"),
@@ -63,6 +64,7 @@ const statesOfIndia = [
 
 export default function SignUpForm() {
   const [step, setStep] = useState(1);
+  const { toast } = useToast();
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(step === 1 ? step1Schema : formSchema),
     defaultValues: {
@@ -92,7 +94,10 @@ export default function SignUpForm() {
 
   function onSubmit(values: z.infer<typeof formSchema>) {
     console.log("Account created:", values);
-    // Handle account creation logic here
+    toast({
+      title: "Feature Not Implemented",
+      description: "Account creation is currently disabled. Please use the provided test credentials on the login page.",
+    });
   }
 
   return (
