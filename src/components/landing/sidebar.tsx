@@ -14,8 +14,8 @@ const GameXLogo = () => (
 
 const navItems = [
   { href: '/', label: 'Home', icon: Home },
-  { href: '#games', label: 'Leaderboard', icon: BarChartBig },
-  { href: '#about', label: 'Connections', icon: Users },
+  { href: '#leaderboard', label: 'Leaderboard', icon: BarChartBig },
+  { href: '#about', label: 'About Us', icon: Users },
   { href: '#contact', label: 'Contact Us', icon: Mail },
 ];
 
