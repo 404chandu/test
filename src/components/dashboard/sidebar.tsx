@@ -7,6 +7,7 @@ import {
   Trophy,
   BarChartBig,
   Rocket,
+  FileText,
 } from 'lucide-react';
 import Link from 'next/link';
 
@@ -55,8 +56,8 @@ const studentNavItems = [
   { href: '/dashboard/video-lectures?role=student', label: 'Lectures', icon: BookOpen },
   { href: '/dashboard/quizzes?role=student', label: 'Quizzes', icon: Puzzle },
   { href: '/dashboard/challenges?role=student', label: 'Daily Challenges', icon: Trophy },
-  { href: '#', label: 'Materials', icon: BookOpen },
-  { href: '#', label: 'Contests', icon: Rocket },
+  { href: '/dashboard/materials?role=student', label: 'Materials', icon: FileText },
+  { href: '/dashboard/contests?role=student', label: 'Contests', icon: Rocket },
   { href: '#', label: 'Leaderboard', icon: BarChartBig },
 ];
 
@@ -65,8 +66,8 @@ const lecturerNavItems = [
     { href: '/dashboard/video-lectures?role=lecturer', label: 'Lectures', icon: BookOpen },
     { href: '/dashboard/quizzes?role=lecturer', label: 'Quizzes', icon: Puzzle },
     { href: '/dashboard/challenges?role=lecturer', label: 'Challenges', icon: Trophy },
-    { href: '#', label: 'Materials', icon: BookOpen },
-    { href: '#', label: 'Contests', icon: Rocket },
+    { href: '/dashboard/materials?role=lecturer', label: 'Materials', icon: FileText },
+    { href: '/dashboard/contests?role=lecturer', label: 'Contests', icon: Rocket },
     { href: '#', label: 'Leaderboard', icon: BarChartBig },
 ];
 

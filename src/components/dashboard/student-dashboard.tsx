@@ -1,7 +1,7 @@
 
 "use client";
 
-import { BookOpen, Puzzle, Trophy, Zap, Award, Crown } from 'lucide-react';
+import { BookOpen, Puzzle, Trophy, Zap, Award, Crown, FileText, Rocket } from 'lucide-react';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
@@ -11,8 +11,8 @@ import Link from 'next/link';
 const featureCards = [
   { title: "Video Lectures", description: "Watch and learn from our curated video lectures.", icon: BookOpen, button: "Explore", xp: 50, link: "/dashboard/video-lectures?role=student" },
   { title: "Quizzes", description: "Test your knowledge with our interactive quizzes.", icon: Puzzle, button: "Explore", xp: 100, link: "/dashboard/quizzes?role=student" },
-  { title: "Daily Challenges", description: "Complete daily challenges to earn extra points.", icon: Zap, button: "Explore", xp: 75, link: "#" },
-  { title: "Materials", description: "Access all the learning materials and resources.", icon: Trophy, button: "Explore", xp: 25, link: "#" },
+  { title: "Daily Challenges", description: "Complete daily challenges to earn extra points.", icon: Zap, button: "Explore", xp: 75, link: "/dashboard/challenges?role=student" },
+  { title: "Materials", description: "Access all the learning materials and resources.", icon: FileText, button: "Explore", xp: 25, link: "/dashboard/materials?role=student" },
 ];
 
 const leaderboardData = [
@@ -60,11 +60,13 @@ export default function StudentDashboard() {
       
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
         <Card className="lg:col-span-2 rounded-2xl shadow-md bg-white/60 backdrop-blur-sm p-6">
-          <h3 className="text-xl font-bold mb-4">Weekly Contest</h3>
+          <h3 className="text-xl font-bold mb-4 flex items-center gap-2"><Rocket className="text-blue-500" /> Weekly Contest</h3>
           <div className="bg-green-100/70 p-6 rounded-lg text-center">
             <h4 className="text-lg font-semibold text-primary">Eco-Innovators Challenge</h4>
             <p className="text-muted-foreground my-2">Design a solution for a local environmental problem.</p>
-            <Button>Participate Now</Button>
+            <Button asChild>
+                <Link href="/dashboard/contests?role=student">Participate Now</Link>
+            </Button>
           </div>
         </Card>
         <Card className="rounded-2xl shadow-md bg-white/60 backdrop-blur-sm p-6">

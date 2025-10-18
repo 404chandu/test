@@ -1,7 +1,7 @@
 
 "use client";
 
-import { BookOpen, Puzzle, Trophy, Zap, Upload, Crown } from 'lucide-react';
+import { BookOpen, Puzzle, Trophy, Zap, Upload, Crown, FileText, Rocket } from 'lucide-react';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
@@ -12,8 +12,8 @@ import Link from 'next/link';
 const featureCards = [
   { title: "Video Lectures", description: "Manage and upload video lectures for students.", icon: BookOpen, exploreLink: "/dashboard/video-lectures?role=lecturer", uploadLink: "/dashboard/video-lectures?role=lecturer&view=upload" },
   { title: "Quizzes", description: "Create and manage quizzes to test student knowledge.", icon: Puzzle, exploreLink: "/dashboard/quizzes?role=lecturer", uploadLink: "/dashboard/quizzes?role=lecturer&view=upload" },
-  { title: "Daily Challenges", description: "Set up daily challenges to engage students.", icon: Zap, exploreLink: "#", uploadLink: "#" },
-  { title: "Materials", description: "Upload and organize learning materials.", icon: Trophy, exploreLink: "#", uploadLink: "#" },
+  { title: "Daily Challenges", description: "Set up daily challenges to engage students.", icon: Zap, exploreLink: "/dashboard/challenges?role=lecturer", uploadLink: "/dashboard/challenges?role=lecturer&view=upload" },
+  { title: "Materials", description: "Upload and organize learning materials.", icon: FileText, exploreLink: "/dashboard/materials?role=lecturer", uploadLink: "/dashboard/materials?role=lecturer&view=upload" },
 ];
 
 const leaderboardData = [
@@ -60,14 +60,18 @@ export default function LecturerDashboard() {
       
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
       <Card className="lg:col-span-2 rounded-2xl shadow-md bg-white/60 backdrop-blur-sm p-6">
-          <h3 className="text-xl font-bold mb-4">Weekly Contest</h3>
+          <h3 className="text-xl font-bold mb-4 flex items-center gap-2"><Rocket className="text-blue-500" /> Weekly Contest</h3>
           <div className="bg-blue-100/60 p-6 rounded-lg text-center">
             <h4 className="text-lg font-semibold text-blue-800">Create & Manage Contests</h4>
             <p className="text-muted-foreground my-2">Engage your students with new and exciting weekly contests.</p>
             <div className="flex justify-center gap-4 mt-4">
-                <Button>Explore</Button>
-                <Button variant="secondary" className="bg-blue-600 text-white hover:bg-blue-700">
-                    <Upload className="mr-2 h-4 w-4" /> Upload Contest
+                <Button asChild>
+                    <Link href="/dashboard/contests?role=lecturer">Explore</Link>
+                </Button>
+                <Button variant="secondary" className="bg-blue-600 text-white hover:bg-blue-700" asChild>
+                    <Link href="/dashboard/contests?role=lecturer&view=upload">
+                        <Upload className="mr-2 h-4 w-4" /> Upload Contest
+                    </Link>
                 </Button>
             </div>
           </div>
