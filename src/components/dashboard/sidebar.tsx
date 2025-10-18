@@ -37,7 +37,7 @@ export default function Sidebar({ isOpen, setIsOpen, role }: { isOpen: boolean; 
   const navItems = role === 'student' ? studentNavItems : lecturerNavItems;
 
   const handleLinkClick = () => {
-    if (isOpen) {
+    if (window.innerWidth < 768 && isOpen) { // Only close on mobile
         setIsOpen(false);
     }
   }
@@ -45,9 +45,9 @@ export default function Sidebar({ isOpen, setIsOpen, role }: { isOpen: boolean; 
   return (
     <>
       <div
-        className={`fixed inset-y-0 left-0 z-50 w-72 transform bg-white shadow-lg transition-transform duration-300 ease-in-out md:translate-x-0 ${
-          isOpen ? 'translate-x-0' : '-translate-x-full'
-        } ${!isOpen && 'md:-translate-x-full'}`}
+        className={`fixed inset-y-0 left-0 z-50 w-72 transform bg-white shadow-lg transition-transform duration-300 ease-in-out ${
+          isOpen ? 'translate-x-0' : '-translate-x-full md:translate-x-0'
+        } md:w-72`}
       >
         <div className="flex h-full flex-col">
             <div className="flex items-center gap-3 p-6 border-b">
